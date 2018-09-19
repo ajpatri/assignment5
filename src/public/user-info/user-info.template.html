@@ -1,0 +1,51 @@
+<div class="container">
+  <div ng-if="!$ctrl.user">
+    You haven't signed up yet. <a ui-sref="public.register">Sign up Now!</a>
+  </div>
+
+  <div ng-if="$ctrl.user">
+    <h4>Welcome back {{$ctrl.user.firstName}}!</h4>
+    <h5>Your information:</h5>
+    <div class="form form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-2">First Name</div>
+        <div class="col-sm-6">{{$ctrl.user.firstName}}</div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2">Last Name</div>
+        <div class="col-sm-6">{{$ctrl.user.lastName}}</div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2">Email Address</div>
+        <div class="col-sm-6">{{$ctrl.user.email}}</div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2">Phone Number</div>
+        <div class="col-sm-6">{{$ctrl.user.phoneNumber}}</div>
+      </div>
+
+      <div ng-if="$ctrl.user.favoriteItem">
+        <div class="form-group">
+          <div class="col-sm-2">Favorite Menu Item</div>
+          <div class="col-sm-3">
+            <img ng-src="{{$ctrl.itemImageSrc}}" alt="your favorite: {{$ctrl.user.favoriteItem.name}}">
+          </div>
+          <div class="col-sm-1">{{$ctrl.user.favoriteItem.short_name}}</div>
+          <div class="col-sm-2">{{$ctrl.user.favoriteItem.name}}</div>
+          <div class="col-sm-4">{{$ctrl.user.favoriteItem.description}}</div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-2"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,107 @@
+<div class="container">
+  <h3>Register for the newsletter!</h3>
+
+  <form class="form-horizontal" name="$ctrl.signUpForm" novalidate>
+
+    <fieldset ng-disabled="$ctrl.saved">
+      <div class="form-group" ng-if="$ctrl.saved">
+        <span class="col-sm-6 label label-success">Your information has been saved</span>
+      </div>
+  
+      <!-- First Name -->
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="firstName">First Name*</label>
+        <div class="col-sm-3">
+          <input class="form-control" type="text" name="firstName"
+                 placeholder="David"
+                 required
+                 ng-model="$ctrl.user.firstName">
+        </div>
+        <div ng-if="$ctrl.signUpForm.firstName.$error.required && $ctrl.signUpForm.firstName.$touched" class="col-sm-3">
+          <span class="label label-danger">Please enter your first name</span>
+        </div>
+      </div><!-- form-group -->
+  
+      <!-- Last Name -->
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="lastName">Last Name*</label>
+        <div class="col-sm-3">
+          <input class="form-control" type="text" name="lastName"
+                 placeholder="Chu"
+                 required
+                 ng-model="$ctrl.user.lastName">
+        </div>
+        <div ng-if="$ctrl.signUpForm.lastName.$error.required && $ctrl.signUpForm.lastName.$touched" class="col-sm-3">
+          <span class="label label-danger">Please enter your last name</span>
+        </div>
+      </div><!-- form-group -->
+  
+      <!-- Email -->
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="email">Email Address*</label>
+        <div class="col-sm-3">
+          <input class="form-control" type="email" name="email"
+                 placeholder="name@domain.com"
+                 required
+                 ng-model="$ctrl.user.email">
+        </div>
+        <div class="col-sm-3"
+             ng-if="($ctrl.signUpForm.email.$error.required || $ctrl.signUpForm.email.$invalid)
+                     && $ctrl.signUpForm.email.$touched">
+          <span class="label label-danger">Please enter a valid email</span>
+        </div>
+      </div><!-- form-group -->
+  
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="phoneNumber">Phone Number</label>
+        <div class="col-sm-3">
+          <input class="form-control"
+                 type="text"
+                 name="phoneNumber"
+                 placeholder="###-###-####"
+                 ng-model="$ctrl.user.phoneNumber"
+                 pattern="(\d){3}-(\d){3}-(\d){4}"> 
+        </div>
+        <div ng-if="$ctrl.signUpForm.phoneNumber.$invalid" class="col-sm-3">
+          <span class="label label-danger">Please enter a phone number (###-###-####)</span>
+        </div>
+      </div><!-- form-group -->
+      
+      <!-- Favorite Dish -->
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="favoriteDish">Favorite Dish</label>
+        <div class="col-sm-3">
+          <input class="form-control" type="text" name="favoriteDish"
+                 placeholder="A1"
+                 ng-model-options="{allowInvalid: true}"
+                 ng-model="$ctrl.user.favoriteDish">
+        </div>
+        <div ng-if="$ctrl.signUpForm.favoriteDish.$invalid" class="col-sm-3">
+          <span class="label label-danger">Couldn't find menu item. Did you use the short name?</span>
+        </div>
+      </div><!-- form-group -->
+  
+      <!-- Form Buttons -->
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="submit"></label>
+        <div class="col-sm-3">
+          <button class="btn btn-success"
+                  ng-disabled="$ctrl.signUpForm.$invalid"
+                  ng-click="$ctrl.finalValidation()">Register!</button>
+        </div>
+      </div><!-- form-group -->
+  
+      <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+          <small>
+            <small>Fields marked with * are required.</small>
+          </small>  
+        </div>
+      </div>
+    </fieldset>
+
+  </form>
+
+</div>
