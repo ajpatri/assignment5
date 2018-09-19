@@ -64,7 +64,7 @@ function RegisterController(MenuService, UserInfoService) {
       firstName: $ctrl.user.firstName,
       lastName: $ctrl.user.lastName,
       email: $ctrl.user.email,
-      phone: $ctrl.user.phoneNumber,
+      phoneNumber: $ctrl.user.phoneNumber,
       favoriteItem: menuItem
     };
 
