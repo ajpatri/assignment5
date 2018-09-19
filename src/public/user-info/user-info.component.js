@@ -14,7 +14,7 @@ function UserInfoController(UserInfoService) {
   var $ctrl = this;
   $ctrl.user = UserInfoService.get();
 
-  if ($ctrl.user) {
+  if ($ctrl.user && $ctrl.user.favoriteItem) {
     var category = $ctrl.user.favoriteItem.short_name.replace(/\d/g, '');
     $ctrl.itemImageSrc = "images/menu/" + category + "/" + category + ".jpg";
   }
